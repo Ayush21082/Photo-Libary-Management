@@ -10,7 +10,6 @@ import UIKit
 class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
-    let animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
     
     
     let cellReuseIdentifier = "cell"

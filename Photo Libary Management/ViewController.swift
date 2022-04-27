@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var photos : PHFetchResult<PHAsset>? = nil
     let reuseIdentifier = "cell"
     
+    var storedData = [Int]()
+    
 
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -116,12 +118,13 @@ class ViewController: UIViewController {
                     myAlbum.append(items[i].row)
                     timeData.append(someDateTime)
                     albumImages.append(images[items[i].row])
-//                    openDatabse()
                 }
 
             }
 
             print(myAlbum)
+//            removeCoreData()
+//            openDatabse()
             //Save to core data
             
 
@@ -150,25 +153,29 @@ class ViewController: UIViewController {
         let entity = NSEntityDescription.entity(forEntityName: "Images", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
         saveData(UserDBObj:newUser)
+//        fetchData()
     }
 
     func saveData(UserDBObj:NSManagedObject)
     {
-        if let items = collectionView.indexPathsForSelectedItems {
-            
-        UserDBObj.setValue(myAlbum, forKey: "album")
-
-
+        for i in 0..<(myAlbum.count) {
+            UserDBObj.setValue(myAlbum[i], forKey: "album")
+        
+        
+        
+        
+        
         print("Storing Data..")
         do {
             try context.save()
         } catch {
             print("Storing data Failed")
         }
-
-        fetchData()
         }
+        
+        fetchData()
     }
+
 
     func fetchData()
     {
@@ -180,12 +187,29 @@ class ViewController: UIViewController {
             for data in result as! [NSManagedObject] {
 //                let time = data.value(forKey: "time") as! String
                 let album = data.value(forKey: "album") as! Int
-                myAlbum.append(album)
+                storedData.append(album)
             }
         } catch {
             print("Fetching data Failed")
         }
-        print(myAlbum)
+        print("storedData: ",storedData)
+    }
+    
+    func removeCoreData() {
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Images") // Find this name in your .xcdatamodeld file
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+            print(error.localizedDescription)
+        }
     }
     
 
