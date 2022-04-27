@@ -98,12 +98,33 @@ class ViewController: UIViewController {
     func copyImagetoAlbum(){
         if let items = collectionView.indexPathsForSelectedItems {
 
+            
+            let date = Date()
+            print(date)
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let someDateTime = formatter.string(from: date)
 
+            
+            
+            for i in 0..<(items.count) {
+                if myAlbum.contains(items[i].row){
+
+                    Toast.show(message: "One of your media is already copied", controller: self)
+                }else{
+                    myAlbum.append(items[i].row)
+                    timeData.append(someDateTime)
+                    albumImages.append(images[items[i].row])
+
+                }
+
+            }
 
             print(myAlbum)
             //Save to core data
             
-//           openDatabse()
+//           openDatabse()t
             
         }
         
@@ -135,39 +156,15 @@ class ViewController: UIViewController {
     {
         if let items = collectionView.indexPathsForSelectedItems {
             
-            
-            let date = Date()
-            print(date)
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-            let someDateTime = formatter.string(from: date)
-
-            
-            
-            for i in 0..<(items.count) {
-                if myAlbum.contains(items[i].row){
-
-                    Toast.show(message: "One of your media is already copied", controller: self)
-                }else{
-                    myAlbum.append(items[i].row)
-                    timeData.append(someDateTime)
-                    albumImages.append(images[items[i].row])
-                    UserDBObj.setValue(myAlbum, forKey: "album")
+        UserDBObj.setValue(myAlbum, forKey: "album")
 
 
-                    print("Storing Data..")
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Storing data Failed")
-                    }
-
-                }
-
-            }
-            
-
+        print("Storing Data..")
+        do {
+            try context.save()
+        } catch {
+            print("Storing data Failed")
+        }
 
         fetchData()
         }
