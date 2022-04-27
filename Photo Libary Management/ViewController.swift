@@ -91,7 +91,7 @@ class ViewController: UIViewController {
             selectButton.setTitle("Deselect", for: .normal)
         }else{
             selectButton.setTitle("Select", for: .normal)
-            collectionView.allowsMultipleSelection = true
+            collectionView.allowsMultipleSelection = false
         }
     }
     
@@ -116,7 +116,7 @@ class ViewController: UIViewController {
                     myAlbum.append(items[i].row)
                     timeData.append(someDateTime)
                     albumImages.append(images[items[i].row])
-
+//                    openDatabse()
                 }
 
             }
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
             print(myAlbum)
             //Save to core data
             
-//           openDatabse()t
+
             
         }
         
