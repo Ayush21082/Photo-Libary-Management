@@ -45,6 +45,14 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         cell.textLabel?.text = timeData[indexPath.row]
         cell.imageView?.image = albumImages[indexPath.row]
+        let itemSize = CGSize.init(width: 125, height: 125)
+        UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.main.scale);
+        let imageRect = CGRect.init(origin: CGPoint.zero, size: itemSize)
+        cell.imageView?.image!.draw(in: imageRect)
+        cell.imageView?.image! = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext();
+        
+        cell.imageView?.frame = CGRect(x:0.0,y:0.0,width:140.0,height:140.0)
         
         return cell
     }
@@ -52,6 +60,10 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0;
     }
 }
 
