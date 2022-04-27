@@ -14,6 +14,9 @@
 		4410036B281914CB005238C4 /* Photo_Libary_Management.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44100369281914CB005238C4 /* Photo_Libary_Management.xcdatamodeld */; };
 		4410036D281914D1005238C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4410036C281914D1005238C4 /* Assets.xcassets */; };
 		44100370281914D1005238C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4410036E281914D1005238C4 /* LaunchScreen.storyboard */; };
+		4410037828191729005238C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410037728191729005238C4 /* Extension.swift */; };
+		4410037A2819339D005238C4 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441003792819339D005238C4 /* Toast.swift */; };
+		4410037C281938D2005238C4 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410037B281938D2005238C4 /* AlbumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		4410036C281914D1005238C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4410036F281914D1005238C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44100371281914D1005238C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4410037728191729005238C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		441003792819339D005238C4 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		4410037B281938D2005238C4 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +67,10 @@
 				44100360281914CB005238C4 /* AppDelegate.swift */,
 				44100362281914CB005238C4 /* SceneDelegate.swift */,
 				44100364281914CB005238C4 /* ViewController.swift */,
+				4410037728191729005238C4 /* Extension.swift */,
+				441003792819339D005238C4 /* Toast.swift */,
 				44100366281914CB005238C4 /* Main.storyboard */,
+				4410037B281938D2005238C4 /* AlbumViewController.swift */,
 				4410036C281914D1005238C4 /* Assets.xcassets */,
 				4410036E281914D1005238C4 /* LaunchScreen.storyboard */,
 				44100371281914D1005238C4 /* Info.plist */,
@@ -141,10 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4410037828191729005238C4 /* Extension.swift in Sources */,
+				4410037A2819339D005238C4 /* Toast.swift in Sources */,
 				4410036B281914CB005238C4 /* Photo_Libary_Management.xcdatamodeld in Sources */,
 				44100365281914CB005238C4 /* ViewController.swift in Sources */,
 				44100361281914CB005238C4 /* AppDelegate.swift in Sources */,
 				44100363281914CB005238C4 /* SceneDelegate.swift in Sources */,
+				4410037C281938D2005238C4 /* AlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
